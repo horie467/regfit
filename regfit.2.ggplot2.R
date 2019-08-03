@@ -1,4 +1,5 @@
 #regfit fitting and drawing graph in R
+#by Nobuyuki Horie
 library(ggplot2)
 regfit <- function(){
 cat("Fitting data and drow graph.\n")
