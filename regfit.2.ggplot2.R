@@ -5,7 +5,7 @@ regfit <- function(){
 cat("Fitting data and drow graph.\n")
 file = readline("File name to save?[graph.txt]:")
 if(file == "") {
-  file = "graph.csv"
+  file = "graph.txt"
 }
 
 cat("R fitting data\n",file=file,append=FALSE)
