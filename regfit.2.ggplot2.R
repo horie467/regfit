@@ -18,7 +18,10 @@ x = fdata$x
 y = fdata$y
 reg2 = lm(y ~ x + I(x ^ 2))
 print(summary(reg2))
-readline("OK?")
+answer = readline("OK?(or no)")
+if(answer == "no") {
+  exit()
+}
 
 str = capture.output(fdata)
 cat(str,file=file,sep="\n",append=TRUE)

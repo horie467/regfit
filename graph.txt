@@ -1,30 +1,29 @@
 R fitting data
-  x  y
-1 0  0
-2 1 11
-3 2 24
-4 3 35
-5 4 41
+   x     y
+1  0 0.000
+2 10 0.132
+3 20 0.260
+4 30 0.401
+5 40 0.430
 
 Call:
 lm(formula = y ~ x + I(x^2))
 
 Residuals:
-       1        2        3        4        5 
- 0.71429 -1.45714  0.08571  1.34286 -0.68571 
+        1         2         3         4         5 
+ 0.008771 -0.013486 -0.012171  0.029714 -0.012829 
 
 Coefficients:
-            Estimate Std. Error t value Pr(>|t|)  
-(Intercept)  -0.7143     1.4752  -0.484   0.6761  
-x            14.0286     1.7475   8.028   0.0152 *
-I(x^2)       -0.8571     0.4189  -2.046   0.1774  
+              Estimate Std. Error t value Pr(>|t|)  
+(Intercept) -8.771e-03  2.538e-02  -0.346   0.7626  
+x            1.680e-02  3.006e-03   5.590   0.0305 *
+I(x^2)      -1.379e-04  7.207e-05  -1.913   0.1959  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 1.568 on 2 degrees of freedom
-Multiple R-squared:  0.9957,	Adjusted R-squared:  0.9914 
-F-statistic: 230.7 on 2 and 2 DF,  p-value: 0.004315
+Residual standard error: 0.02697 on 2 degrees of freedom
+Multiple R-squared:  0.9889,	Adjusted R-squared:  0.9779 
+F-statistic: 89.47 on 2 and 2 DF,  p-value: 0.01105
 
 uniroot output
  root	y_valu	iter	init.it	estim.prec
-x: 30 y:  2.603584 5.73237e-06 5 NA 6.103516e-05 
