@@ -20,7 +20,7 @@ reg2 = lm(y ~ x + I(x ^ 2))
 print(summary(reg2))
 answer = readline("OK?(or no)")
 if(answer == "no") {
-  exit()
+  return(1)
 }
 
 str = capture.output(fdata)
