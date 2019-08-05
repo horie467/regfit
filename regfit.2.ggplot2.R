@@ -1,6 +1,6 @@
 #regfit fitting and drawing graph in R
 #by Nobuyuki Horie
-#test push
+#test push2
 library(ggplot2)
 regfit <- function(){
 cat("Fitting data and drow graph.\n")
