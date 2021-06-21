@@ -1,13 +1,16 @@
 #regfit fitting and drawing graph in R
 #by Nobuyuki Horie
 #test push2
-#for interactive R
+#for Rscript
 library(ggplot2)
 regfit <- function(){
 cat("Fitting data and drow graph.\n")
-#cat("File name to save?[graph.txt]:")
-#file_name <- readLines(file("stdin"), n=1)
-file_name = readline("File name to save?[graph.txt]:")
+
+#file = readline("File name to save?[graph.txt]:")
+cat("File name to save?[graph.txt]:")
+file_name <- readLines(file("stdin"), n=1)
+close(file("stdin"))
+
 if(file_name == "") {
   file_name = "graph.txt"
 }
@@ -22,7 +25,10 @@ x = fdata$x
 y = fdata$y
 reg2 = lm(y ~ x + I(x ^ 2))
 print(summary(reg2))
-answer = readline("OK?(or no)")
+#answer = readline("OK?(or no)")
+cat("OK?(or no)")
+answer <- readLines(file("stdin"), n=1)
+close(file("stdin"))
 if(answer == "no") {
   return(1)
 }
@@ -34,9 +40,16 @@ str = capture.output(summary(reg2))
 cat(str,file=file_name,sep="\n",append=TRUE)
 
 cat("Drawing graph...\n")
-xtitle = readline("Title for x axis:")
-ytitle = readline("Title for y axis:")
 
+#xtitle = readline("Title for x axis:")
+cat("Title for x axis:")
+xtitle <- readLines(file("stdin"), n=1)
+close(file("stdin"))
+
+#ytitle = readline("Title for y axis:")
+cat("Title for y axis:")
+ytitle <- readLines(file("stdin"), n=1)
+close(file("stdin"))
 
 xmin = min(x)
 xmax = max(x)
@@ -60,12 +73,20 @@ g <- g + geom_line(data=line_data.frame,aes(x=lx,y=ly))
 g <- g + xlab(xtitle) + ylab(ytitle)
 plot(g)
 
-input=""
+input_data=""
 cat("uniroot output\n","root\ty_valu\titer\tinit.it\testim.prec\n",file=file_name,append=TRUE)
-while(input !="end") {
-input = readline("Input y value or end:")
-if(input != "end") {
-  ninput = as.numeric(input)
+while(input_data !="end") {
+#input = readline("Input y value or end:")
+cat("Input y value or end:")
+input_data<- readLines(file("stdin"), n=1)
+close(file("stdin"))
+
+print(paste("input is:",input_data,sep=""))
+
+if(input_data != "end") {
+  ninput = as.numeric(input_data)
+  print(ninput)
+
   if((ninput > max(y)) | (ninput < min(y))) {
     cat("Out of range!","\n")
     cat("x:",ninput,"y: out of range","\n")
@@ -74,6 +95,8 @@ if(input != "end") {
     cat("Expected x value:",unlist(yexpect),"\n") 
     cat("x:",ninput,"y: ",unlist(yexpect),"\n",file=file_name,append=TRUE)
     }
+  } else {
+     cat("Program end.")
   }
 }
 }
