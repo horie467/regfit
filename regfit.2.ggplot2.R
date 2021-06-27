@@ -7,9 +7,9 @@ regfit <- function(){
 cat("Fitting data and drow graph.\n")
 #cat("File name to save?[graph.txt]:")
 #file_name <- readLines(file("stdin"), n=1)
-file_name = readline("File name to save?[graph.txt]:")
+file_name = readline("File name to save?[./output_data/graph.txt]:")
 if(file_name == "") {
-  file_name = "graph.txt"
+  file_name = "./output_data/graph.txt"
 }
 
 cat("R fitting data\n",file=file_name,append=FALSE)
@@ -56,6 +56,7 @@ line_data.frame=data.frame(lx=xfit,ly=predict(reg2,data.frame(x=xfit)))
 
 g <- ggplot(fdata,aes(x=x,y=y))
 g <- g + geom_point()
+g <- g + ggtitle(paste("Regfit Graph:",date(),sep=""))
 g <- g + geom_line(data=line_data.frame,aes(x=lx,y=ly))
 g <- g + xlab(xtitle) + ylab(ytitle)
 plot(g)

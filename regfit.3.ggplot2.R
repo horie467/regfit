@@ -7,12 +7,12 @@ regfit <- function(){
 cat("Fitting data and drow graph.\n")
 
 #file = readline("File name to save?[graph.txt]:")
-cat("File name to save?[graph.txt]:")
+cat("File name to save?[./output_data/graph.txt]:")
 file_name <- readLines(file("stdin"), n=1)
 close(file("stdin"))
 
 if(file_name == "") {
-  file_name = "graph.txt"
+  file_name = "./output_data/graph.txt"
 }
 
 cat("R fitting data\n",file=file_name,append=FALSE)
@@ -70,8 +70,20 @@ line_data.frame=data.frame(lx=xfit,ly=predict(reg2,data.frame(x=xfit)))
 g <- ggplot(fdata,aes(x=x,y=y))
 g <- g + geom_point()
 g <- g + geom_line(data=line_data.frame,aes(x=lx,y=ly))
+g <- g + ggtitle(paste("Regfit Graph:",date(),sep=""))
 g <- g + xlab(xtitle) + ylab(ytitle)
-plot(g)
+#image output
+#png("./output_data/graph.png")
+#plot(g)
+#dev.off
+ggsave(file="./output_data/graph.png",plot=g)
+wdir <- getwd()
+#cat(paste("Open file...","file:/",wdir,"/output_data/graph.png¥n",sep=""))
+print(paste("Open file...","file:/",wdir,"/output_data/graph.png¥n",sep=""))
+#cat("¥n")
+#browseURL(paste("file:/",wdir,"/output_data/graph.png",sep=""))
+browseURL("/home/horie/git/regfit/output_data/graph.png")
+
 
 input_data=""
 cat("uniroot output\n","root\ty_valu\titer\tinit.it\testim.prec\n",file=file_name,append=TRUE)
