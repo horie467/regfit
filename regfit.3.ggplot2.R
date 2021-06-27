@@ -62,7 +62,6 @@ fitfunc <- function(x) {
 #plot
 #plot(x,y,xlab=xtitle,ylab=ytitle)
 #lines(xfit,predict(reg2,data.frame(x=xfit)))
-
 #plot ggplot2
 
 line_data.frame=data.frame(lx=xfit,ly=predict(reg2,data.frame(x=xfit)))
@@ -78,11 +77,10 @@ g <- g + xlab(xtitle) + ylab(ytitle)
 #dev.off
 ggsave(file="./output_data/graph.png",plot=g)
 wdir <- getwd()
-#cat(paste("Open file...","file:/",wdir,"/output_data/graph.png¥n",sep=""))
-print(paste("Open file...","file:/",wdir,"/output_data/graph.png¥n",sep=""))
+print(paste("Open file...",wdir,"/output_data/graph.png",sep=""))
 #cat("¥n")
-#browseURL(paste("file:/",wdir,"/output_data/graph.png",sep=""))
-browseURL("/home/horie/git/regfit/output_data/graph.png")
+browseURL(paste(wdir,"/output_data/graph.png",sep=""))
+#browseURL("/home/horie/git/regfit/output_data/graph.png")
 
 
 input_data=""
