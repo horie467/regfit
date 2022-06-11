@@ -7,6 +7,10 @@ regfit <- function(){
 cat("Fitting data and drow graph.\n")
 #cat("File name to save?[graph.txt]:")
 #file_name <- readLines(file("stdin"), n=1)
+#check output_data directory
+if(dir.exist("./output_data")) {
+  dir.create("./output_data")
+}
 file_name = readline("File name to save?[./output_data/graph.txt]:")
 if(file_name == "") {
   file_name = "./output_data/graph.txt"
