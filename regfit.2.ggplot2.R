@@ -62,7 +62,7 @@ g <- g + xlab(xtitle) + ylab(ytitle)
 plot(g)
 
 input=""
-cat("uniroot output\n","root\ty_valu\titer\tinit.it\testim.prec\n",file=file_name,append=TRUE)
+#cat("uniroot output\n","root\ty_valu\titer\tinit.it\testim.prec\n",file=file_name,append=TRUE)
 while(input !="end") {
 input = readline("Input y value or end:")
 if(input != "end") {

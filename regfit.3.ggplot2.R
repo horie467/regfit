@@ -84,7 +84,7 @@ browseURL(paste(wdir,"/output_data/graph.png",sep=""))
 
 
 input_data=""
-cat("uniroot output\n","root\ty_valu\titer\tinit.it\testim.prec\n",file=file_name,append=TRUE)
+#cat("uniroot output\n","root\ty_valu\titer\tinit.it\testim.prec\n",file=file_name,append=TRUE)
 while(input_data !="end") {
 #input = readline("Input y value or end:")
 cat("Input y value or end:")
