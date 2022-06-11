@@ -6,7 +6,7 @@ library(ggplot2)
 regfit <- function(){
 cat("Fitting data and drow graph.\n")
 #check output_data directory
-if(dir.exist("./output_data")) {
+if(dir.exists("./output_data")) {
   dir.create("./output_data")
 }
 #file = readline("File name to save?[graph.txt]:")
